@@ -4,8 +4,8 @@ const baseOpts = {
   args: [],
   call: '',
   color: false,
+  flatOptions: {},
   path: '',
-  pathArr: [''],
   runPath: '',
   shell: process.platform === 'win32'
     ? process.env.ComSpec || 'cmd'
@@ -21,7 +21,7 @@ t.test('disable, enable log progress', t => {
     }),
   })
   const runScript = t.mock('../lib/run-script.js', {
-    '@npmcli/ci-detect': () => false,
+    'ci-info': { isCI: false },
     '@npmcli/run-script': async () => {
       t.ok('should call run-script')
     },
@@ -46,7 +46,7 @@ t.test('no package.json', t => {
   t.plan(1)
 
   const runScript = t.mock('../lib/run-script.js', {
-    '@npmcli/ci-detect': () => false,
+    'ci-info': { isCI: false },
     '@npmcli/run-script': async () => {
       t.ok('should call run-script')
     },
@@ -56,11 +56,11 @@ t.test('no package.json', t => {
   runScript(baseOpts)
 })
 
-t.test('colorized interactive mode msg', t => {
+t.test('colorized interactive mode msg', async t => {
   t.plan(2)
 
   const runScript = t.mock('../lib/run-script.js', {
-    '@npmcli/ci-detect': () => false,
+    'ci-info': { isCI: false },
     '@npmcli/run-script': async () => {
       t.ok('should call run-script')
     },
@@ -68,27 +68,22 @@ t.test('colorized interactive mode msg', t => {
   })
 
   const OUTPUT = []
-  runScript({
+  await runScript({
     ...baseOpts,
     output: msg => {
       OUTPUT.push(msg)
     },
     runPath: '/foo/',
-    color: true,
+    flatOptions: { color: true },
   })
-    .then(() => {
-      t.matchSnapshot(OUTPUT.join('\n'), 'should print colorized output')
-    })
-    .catch(err => {
-      throw err
-    })
+  t.matchSnapshot(OUTPUT.join('\n'), 'should print colorized output')
 })
 
-t.test('no color interactive mode msg', t => {
+t.test('no color interactive mode msg', async t => {
   t.plan(2)
 
   const runScript = t.mock('../lib/run-script.js', {
-    '@npmcli/ci-detect': () => false,
+    'ci-info': { isCI: false },
     '@npmcli/run-script': async () => {
       t.ok('should call run-script')
     },
@@ -96,26 +91,21 @@ t.test('no color interactive mode msg', t => {
   })
 
   const OUTPUT = []
-  runScript({
+  await runScript({
     ...baseOpts,
     output: msg => {
       OUTPUT.push(msg)
     },
     runPath: '/foo/',
   })
-    .then(() => {
-      t.matchSnapshot(OUTPUT.join('\n'), 'should print non-colorized output')
-    })
-    .catch(err => {
-      throw err
-    })
+  t.matchSnapshot(OUTPUT.join('\n'), 'should print non-colorized output')
 })
 
 t.test('no tty', t => {
   t.plan(1)
 
   const runScript = t.mock('../lib/run-script.js', {
-    '@npmcli/ci-detect': () => false,
+    'ci-info': { isCI: false },
     '@npmcli/run-script': async () => {
       t.ok('should call run-script')
     },
@@ -129,7 +119,7 @@ t.test('ci env', t => {
   t.plan(2)
 
   const runScript = t.mock('../lib/run-script.js', {
-    '@npmcli/ci-detect': () => true,
+    'ci-info': { isCI: true },
     '@npmcli/run-script': async () => {
       throw new Error('should not call run-script')
     },

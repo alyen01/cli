@@ -1,5 +1,40 @@
 # Changelog
 
+## [5.0.1](https://github.com/npm/cli/compare/libnpmteam-v5.0.0...libnpmteam-v5.0.1) (2022-12-07)
+
+### Dependencies
+
+* [`0a3fe00`](https://github.com/npm/cli/commit/0a3fe000e2723ae6fdb8b1d3154fd3835057c992) [#5933](https://github.com/npm/cli/pull/5933) `minipass@4.0.0`
+* [`fee9b66`](https://github.com/npm/cli/commit/fee9b6686892a1c7f976c36ddd5d89b70c416817) `npm-registry-fetch@14.0.3`
+
+## [5.0.0](https://github.com/npm/cli/compare/libnpmteam-v5.0.0-pre.1...libnpmteam-v5.0.0) (2022-10-19)
+
+### Features
+
+* [`586e78d`](https://github.com/npm/cli/commit/586e78d59c3dad29e8e886a4764d2eb8021d11d1) empty commit to trigger all workspace releases (@lukekarrys)
+
+## [5.0.0-pre.1](https://github.com/npm/cli/compare/libnpmteam-v5.0.0-pre.0...libnpmteam-v5.0.0-pre.1) (2022-10-19)
+
+### Dependencies
+
+* [`aa01072`](https://github.com/npm/cli/commit/aa010722996ef6de46e1bb937c6f8a94dc2844fa) [#5707](https://github.com/npm/cli/pull/5707) update the following dependencies
+
+## [5.0.0-pre.0](https://github.com/npm/cli/compare/libnpmteam-v4.0.4...libnpmteam-v5.0.0-pre.0) (2022-09-08)
+
+### ⚠ BREAKING CHANGES
+
+* **workspaces:** all workspace packages are now compatible with the following semver range for node: `^14.17.0 || ^16.13.0 || >=18.0.0`
+
+### Features
+
+  * [`e95017a`](https://github.com/npm/cli/commit/e95017a07b041cbb3293e659dad853f76462c108) [#5485](https://github.com/npm/cli/pull/5485) feat(workspaces): update supported node engines in package.json (@lukekarrys)
+
+## [4.0.4](https://github.com/npm/cli/compare/libnpmteam-v4.0.3...libnpmteam-v4.0.4) (2022-08-31)
+
+### Dependencies
+
+  * [`8ab12dc`](https://github.com/npm/cli/commit/8ab12dc32b26db770b868cf694cedab38f4e7460) [#5323](https://github.com/npm/cli/pull/5323) deps: `@npmcli/eslint-config@3.1.0`
+
 ### [4.0.3](https://github.com/npm/cli/compare/libnpmteam-v4.0.2...libnpmteam-v4.0.3) (2022-04-06)
 
 

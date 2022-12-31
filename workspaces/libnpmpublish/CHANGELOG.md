@@ -1,5 +1,115 @@
 # Changelog
 
+## [7.0.6](https://github.com/npm/cli/compare/libnpmpublish-v7.0.5...libnpmpublish-v7.0.6) (2022-12-07)
+
+### Dependencies
+
+* [`0a3fe00`](https://github.com/npm/cli/commit/0a3fe000e2723ae6fdb8b1d3154fd3835057c992) [#5933](https://github.com/npm/cli/pull/5933) `minipass@4.0.0`
+* [`cf0a174`](https://github.com/npm/cli/commit/cf0a17407abc577c27420a1c8a4a0c08c7cefce9) `ssri@10.0.1`
+* [`fee9b66`](https://github.com/npm/cli/commit/fee9b6686892a1c7f976c36ddd5d89b70c416817) `npm-registry-fetch@14.0.3`
+* [`875bd56`](https://github.com/npm/cli/commit/875bd56c33ca5eef80c2a50a11808445f2a39a2a) `npm-package-arg@10.1.0`
+* [Workspace](https://github.com/npm/cli/releases/tag/libnpmpack-v5.0.6): `libnpmpack@5.0.6`
+
+## [7.0.5](https://github.com/npm/cli/compare/libnpmpublish-v7.0.4...libnpmpublish-v7.0.5) (2022-11-30)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.4...libnpmpack-v5.0.5): `libnpmpack@5.0.5`
+
+## [7.0.4](https://github.com/npm/cli/compare/libnpmpublish-v7.0.3...libnpmpublish-v7.0.4) (2022-11-16)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.3...libnpmpack-v5.0.4): `libnpmpack@5.0.4`
+
+## [7.0.3](https://github.com/npm/cli/compare/libnpmpublish-v7.0.2...libnpmpublish-v7.0.3) (2022-11-09)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.2...libnpmpack-v5.0.3): `libnpmpack@5.0.3`
+
+## [7.0.2](https://github.com/npm/cli/compare/libnpmpublish-v7.0.1...libnpmpublish-v7.0.2) (2022-11-02)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.1...libnpmpack-v5.0.2): `libnpmpack@5.0.2`
+
+## [7.0.1](https://github.com/npm/cli/compare/libnpmpublish-v7.0.0...libnpmpublish-v7.0.1) (2022-10-26)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.0...libnpmpack-v5.0.1): `libnpmpack@5.0.1`
+
+## [7.0.0](https://github.com/npm/cli/compare/libnpmpublish-v7.0.0-pre.4...libnpmpublish-v7.0.0) (2022-10-19)
+
+### Features
+
+* [`586e78d`](https://github.com/npm/cli/commit/586e78d59c3dad29e8e886a4764d2eb8021d11d1) empty commit to trigger all workspace releases (@lukekarrys)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.4...libnpmpack-v5.0.0): `libnpmpack@5.0.0`
+
+## [7.0.0-pre.4](https://github.com/npm/cli/compare/libnpmpublish-v7.0.0-pre.3...libnpmpublish-v7.0.0-pre.4) (2022-10-19)
+
+### Dependencies
+
+* [`2008ea6`](https://github.com/npm/cli/commit/2008ea6a807acbd97912799adfe97f276202cea6) `npm-package-arg@10.0.0`, `pacote@15.0.2`
+* [`aa01072`](https://github.com/npm/cli/commit/aa010722996ef6de46e1bb937c6f8a94dc2844fa) [#5707](https://github.com/npm/cli/pull/5707) update the following dependencies
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.3...libnpmpack-v5.0.0-pre.4): `libnpmpack@5.0.0-pre.4`
+
+## [7.0.0-pre.3](https://github.com/npm/cli/compare/libnpmpublish-v7.0.0-pre.2...libnpmpublish-v7.0.0-pre.3) (2022-10-13)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.2...libnpmpack-v5.0.0-pre.3): `libnpmpack@5.0.0-pre.3`
+
+## [7.0.0-pre.2](https://github.com/npm/cli/compare/libnpmpublish-v7.0.0-pre.1...libnpmpublish-v7.0.0-pre.2) (2022-10-05)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.1...libnpmpack-v5.0.0-pre.2): `libnpmpack@5.0.0-pre.2`
+
+## [7.0.0-pre.1](https://github.com/npm/cli/compare/libnpmpublish-v7.0.0-pre.0...libnpmpublish-v7.0.0-pre.1) (2022-09-30)
+
+### ⚠️ BREAKING CHANGES
+
+* The default value of `access` is now `public`
+
+### Features
+
+* [`525654e`](https://github.com/npm/cli/commit/525654e957a80c7f47472e18240e3c8d94e0568f) default access to `public` (@wraithgar)
+
+### Documentation
+
+* [`f0e7584`](https://github.com/npm/cli/commit/f0e758494698d9dd8a58d07bf71c87608c36869e) [#5601](https://github.com/npm/cli/pull/5601) update docs/logging for new --access default (@wraithgar)
+
+## [7.0.0-pre.0](https://github.com/npm/cli/compare/libnpmpublish-v6.0.5...libnpmpublish-v7.0.0-pre.0) (2022-09-08)
+
+### ⚠ BREAKING CHANGES
+
+* **workspaces:** all workspace packages are now compatible with the following semver range for node: `^14.17.0 || ^16.13.0 || >=18.0.0`
+
+### Features
+
+  * [`e95017a`](https://github.com/npm/cli/commit/e95017a07b041cbb3293e659dad853f76462c108) [#5485](https://github.com/npm/cli/pull/5485) feat(workspaces): update supported node engines in package.json (@lukekarrys)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * libnpmpack bumped from ^4.1.3 to ^5.0.0-pre.0
+
+## [6.0.5](https://github.com/npm/cli/compare/libnpmpublish-v6.0.4...libnpmpublish-v6.0.5) (2022-08-31)
+
+### Dependencies
+
+  * [`8ab12dc`](https://github.com/npm/cli/commit/8ab12dc32b26db770b868cf694cedab38f4e7460) [#5323](https://github.com/npm/cli/pull/5323) deps: `@npmcli/eslint-config@3.1.0`
+* The following workspace dependencies were updated
+  * devDependencies
+    * libnpmpack bumped from ^4.0.0 to ^4.1.3
+
 ### [6.0.4](https://github.com/npm/cli/compare/libnpmpublish-v6.0.3...libnpmpublish-v6.0.4) (2022-04-26)
 
 

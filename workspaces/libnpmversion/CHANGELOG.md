@@ -1,5 +1,61 @@
 # Changelog
 
+## [4.0.1](https://github.com/npm/cli/compare/libnpmversion-v4.0.0...libnpmversion-v4.0.1) (2022-11-02)
+
+### Bug Fixes
+
+* [`1f5382d`](https://github.com/npm/cli/commit/1f5382dada181cda41f1504974de1e69a6c1ad7f) [#5789](https://github.com/npm/cli/pull/5789) don't set `stdioString` for any spawn/run-script calls (@lukekarrys)
+
+### Dependencies
+
+* [`abfb28b`](https://github.com/npm/cli/commit/abfb28b249183b8c033f8e7acc1546150cdac137) `@npmcli/run-script@6.0.0`
+
+## [4.0.0](https://github.com/npm/cli/compare/libnpmversion-v4.0.0-pre.1...libnpmversion-v4.0.0) (2022-10-19)
+
+### Features
+
+* [`586e78d`](https://github.com/npm/cli/commit/586e78d59c3dad29e8e886a4764d2eb8021d11d1) empty commit to trigger all workspace releases (@lukekarrys)
+
+## [4.0.0-pre.1](https://github.com/npm/cli/compare/libnpmversion-v4.0.0-pre.0...libnpmversion-v4.0.0-pre.1) (2022-10-19)
+
+### Dependencies
+
+* [`aa01072`](https://github.com/npm/cli/commit/aa010722996ef6de46e1bb937c6f8a94dc2844fa) [#5707](https://github.com/npm/cli/pull/5707) update the following dependencies
+
+## [4.0.0-pre.0](https://github.com/npm/cli/compare/libnpmversion-v3.0.7...libnpmversion-v4.0.0-pre.0) (2022-09-08)
+
+### ⚠ BREAKING CHANGES
+
+* **workspaces:** all workspace packages are now compatible with the following semver range for node: `^14.17.0 || ^16.13.0 || >=18.0.0`
+
+### Features
+
+  * [`e95017a`](https://github.com/npm/cli/commit/e95017a07b041cbb3293e659dad853f76462c108) [#5485](https://github.com/npm/cli/pull/5485) feat(workspaces): update supported node engines in package.json (@lukekarrys)
+
+## [3.0.7](https://github.com/npm/cli/compare/libnpmversion-v3.0.6...libnpmversion-v3.0.7) (2022-08-31)
+
+### Bug Fixes
+
+  * [`bd2ae5d`](https://github.com/npm/cli/commit/bd2ae5d79eb8807bfca6075e98432c545a9ededa) [#5323](https://github.com/npm/cli/pull/5323) fix: linting (@wraithgar)
+
+### Dependencies
+
+  * [`8ab12dc`](https://github.com/npm/cli/commit/8ab12dc32b26db770b868cf694cedab38f4e7460) [#5323](https://github.com/npm/cli/pull/5323) deps: `@npmcli/eslint-config@3.1.0`
+
+## [3.0.6](https://github.com/npm/cli/compare/libnpmversion-v3.0.5...libnpmversion-v3.0.6) (2022-06-23)
+
+
+### Dependencies
+
+* @npmcli/run-script@4.1.3 ([#5064](https://github.com/npm/cli/issues/5064)) ([f59a114](https://github.com/npm/cli/commit/f59a114ffe3d1f86ccb2e52a4432292ab76852cc))
+
+## [3.0.5](https://github.com/npm/cli/compare/libnpmversion-v3.0.4...libnpmversion-v3.0.5) (2022-06-22)
+
+
+### Dependencies
+
+* @npmcli/run-script@4.1.0 ([2c06cee](https://github.com/npm/cli/commit/2c06ceee82dd813c0ae84cc0b09e6941cfc5533e))
+
 ### [3.0.4](https://github.com/npm/cli/compare/libnpmversion-v3.0.3...libnpmversion-v3.0.4) (2022-04-26)
 
 

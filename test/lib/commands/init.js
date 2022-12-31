@@ -85,7 +85,7 @@ t.test('npm init <arg>', async t => {
     libnpmexec: ({ args, cache, npxCache }) => {
       t.same(
         args,
-        ['create-react-app'],
+        ['create-react-app@*'],
         'should npx with listed packages'
       )
       t.same(cache, flatOptions.cache)
@@ -106,7 +106,7 @@ t.test('npm init <arg> -- other-args', async t => {
     libnpmexec: ({ args }) => {
       t.same(
         args,
-        ['create-react-app', 'my-path', '--some-option', 'some-value'],
+        ['create-react-app@*', 'my-path', '--some-option', 'some-value'],
         'should npm exec with expected args'
       )
     },
@@ -125,7 +125,7 @@ t.test('npm init @scope/name', async t => {
     libnpmexec: ({ args }) => {
       t.same(
         args,
-        ['@npmcli/create-something'],
+        ['@npmcli/create-something@*'],
         'should npx with scoped packages'
       )
     },
@@ -134,6 +134,44 @@ t.test('npm init @scope/name', async t => {
 
   process.chdir(npm.localPrefix)
   await init.exec(['@npmcli/something'])
+})
+
+t.test('npm init @scope@spec', async t => {
+  t.plan(1)
+  npm.localPrefix = t.testdir({})
+
+  const Init = t.mock('../../../lib/commands/init.js', {
+    libnpmexec: ({ args }) => {
+      t.same(
+        args,
+        ['@npmcli/create@foo'],
+        'should npx with scoped packages'
+      )
+    },
+  })
+  const init = new Init(npm)
+
+  process.chdir(npm.localPrefix)
+  await init.exec(['@npmcli@foo'])
+})
+
+t.test('npm init @scope/name@spec', async t => {
+  t.plan(1)
+  npm.localPrefix = t.testdir({})
+
+  const Init = t.mock('../../../lib/commands/init.js', {
+    libnpmexec: ({ args }) => {
+      t.same(
+        args,
+        ['@npmcli/create-something@foo'],
+        'should npx with scoped packages'
+      )
+    },
+  })
+  const init = new Init(npm)
+
+  process.chdir(npm.localPrefix)
+  await init.exec(['@npmcli/something@foo'])
 })
 
 t.test('npm init git spec', async t => {
@@ -230,7 +268,7 @@ t.test('should not rewrite flatOptions', async t => {
     libnpmexec: async ({ args }) => {
       t.same(
         args,
-        ['create-react-app', 'my-app'],
+        ['create-react-app@*', 'my-app'],
         'should npx with extra args'
       )
     },
@@ -288,6 +326,7 @@ t.test('workspaces', t => {
     t.teardown(() => {
       npm._mockOutputs.length = 0
     })
+    npm._mockOutputs.length = 0
     npm.localPrefix = t.testdir({
       'package.json': JSON.stringify({
         name: 'top-level',
@@ -304,6 +343,39 @@ t.test('workspaces', t => {
     const init = new Init(npm)
     await init.execWorkspaces([], ['a'])
     t.matchSnapshot(npm._mockOutputs, 'should print helper info')
+  })
+
+  t.test('post workspace-init reify', async t => {
+    const _consolelog = console.log
+    console.log = () => null
+    t.teardown(() => {
+      console.log = _consolelog
+      npm._mockOutputs.length = 0
+      delete npm.flatOptions.workspacesUpdate
+    })
+    npm.started = Date.now()
+    npm._mockOutputs.length = 0
+    npm.flatOptions.workspacesUpdate = true
+    npm.localPrefix = t.testdir({
+      'package.json': JSON.stringify({
+        name: 'top-level',
+      }),
+    })
+
+    const Init = t.mock('../../../lib/commands/init.js', {
+      ...mocks,
+      'init-package-json': (dir, initFile, config, cb) => {
+        t.equal(dir, resolve(npm.localPrefix, 'a'), 'should use the ws path')
+        return require('init-package-json')(dir, initFile, config, cb)
+      },
+    })
+    const init = new Init(npm)
+    await init.execWorkspaces([], ['a'])
+    const output = npm._mockOutputs.map(arr => arr.map(i => i.replace(/[0-9]*m?s$/, '100ms')))
+    t.matchSnapshot(output, 'should print helper info')
+    const lockFilePath = resolve(npm.localPrefix, 'package-lock.json')
+    const lockFile = fs.readFileSync(lockFilePath, { encoding: 'utf8' })
+    t.matchSnapshot(lockFile, 'should reify tree on init ws complete')
   })
 
   t.test('no args, existing folder', async t => {
@@ -428,7 +500,7 @@ t.test('workspaces', t => {
       libnpmexec: ({ args, path }) => {
         t.same(
           args,
-          ['create-react-app'],
+          ['create-react-app@*'],
           'should npx with listed packages'
         )
         t.same(

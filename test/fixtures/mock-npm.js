@@ -63,9 +63,10 @@ const LoadMockNpm = async (t, {
   prefixDir = {},
   homeDir = {},
   cacheDir = {},
-  globalPrefixDir = {},
+  globalPrefixDir = { lib: {} },
   config = {},
   mocks = {},
+  otherDirs = {},
   globals = null,
 } = {}) => {
   // Mock some globals with their original values so they get torn down
@@ -107,18 +108,23 @@ const LoadMockNpm = async (t, {
     prefix: prefixDir,
     cache: cacheDir,
     global: globalPrefixDir,
+    other: otherDirs,
   })
-  const prefix = path.join(dir, 'prefix')
-  const cache = path.join(dir, 'cache')
-  const globalPrefix = path.join(dir, 'global')
-  const home = path.join(dir, 'home')
+  const dirs = {
+    testdir: dir,
+    prefix: path.join(dir, 'prefix'),
+    cache: path.join(dir, 'cache'),
+    globalPrefix: path.join(dir, 'global'),
+    home: path.join(dir, 'home'),
+    other: path.join(dir, 'other'),
+  }
 
   // Set cache to testdir via env var so it is available when load is run
   // XXX: remove this for a solution where cache argv is passed in
   mockGlobals(t, {
-    'process.env.HOME': home,
-    'process.env.npm_config_cache': cache,
-    ...(globals ? result(globals, { prefix, cache, home }) : {}),
+    'process.env.HOME': dirs.home,
+    'process.env.npm_config_cache': dirs.cache,
+    ...(globals ? result(globals, { ...dirs }) : {}),
     // Some configs don't work because they can't be set via npm.config.set until
     // config is loaded. But some config items are needed before that. So this is
     // an explicit set of configs that must be loaded as env vars.
@@ -126,7 +132,8 @@ const LoadMockNpm = async (t, {
     ...Object.entries(config)
       .filter(([k]) => envConfigKeys.includes(k))
       .reduce((acc, [k, v]) => {
-        acc[`process.env.npm_config_${k.replace(/-/g, '_')}`] = v.toString()
+        acc[`process.env.npm_config_${k.replace(/-/g, '_')}`] =
+          result(v, { ...dirs }).toString()
         return acc
       }, {}),
   })
@@ -138,7 +145,7 @@ const LoadMockNpm = async (t, {
 
   if (load) {
     await npm.load()
-    for (const [k, v] of Object.entries(result(config, { npm, prefix, cache }))) {
+    for (const [k, v] of Object.entries(result(config, { npm, ...dirs }))) {
       if (typeof v === 'object' && v.value && v.where) {
         npm.config.set(k, v.value, v.where)
       } else {
@@ -148,20 +155,16 @@ const LoadMockNpm = async (t, {
     // Set global loglevel *again* since it possibly got reset during load
     // XXX: remove with npmlog
     setLoglevel(t, config.loglevel, false)
-    npm.prefix = prefix
-    npm.cache = cache
-    npm.globalPrefix = globalPrefix
+    npm.prefix = dirs.prefix
+    npm.cache = dirs.cache
+    npm.globalPrefix = dirs.globalPrefix
   }
 
   return {
     ...rest,
+    ...dirs,
     Npm,
     npm,
-    home,
-    prefix,
-    globalPrefix,
-    testdir: dir,
-    cache,
     debugFile: async () => {
       const readFiles = npm.logFiles.map(f => fs.readFile(f))
       const logFiles = await Promise.all(readFiles)
@@ -171,8 +174,8 @@ const LoadMockNpm = async (t, {
         .join('\n')
     },
     timingFile: async () => {
-      const data = await fs.readFile(path.resolve(cache, '_timing.json'), 'utf8')
-      return JSON.parse(data) // XXX: this fails if multiple timings are written
+      const data = await fs.readFile(npm.timingFile, 'utf8')
+      return JSON.parse(data)
     },
   }
 }
@@ -213,6 +216,7 @@ class MockNpm {
         }
       },
       list: [{ ...realConfig.defaults, ...config }],
+      validate: () => {},
     }
 
     if (t && config.loglevel) {
@@ -224,11 +228,24 @@ class MockNpm {
     }
   }
 
+  get global () {
+    return this.config.get('global') || this.config.get('location') === 'global'
+  }
+
   output (...msg) {
     if (this.base.output) {
       return this.base.output(msg)
     }
     this._mockOutputs.push(msg)
+  }
+
+  // with the older fake mock npm there is no
+  // difference between output and outputBuffer
+  // since it just collects the output and never
+  // calls the exit handler, so we just mock the
+  // method the same as output.
+  outputBuffer (...msg) {
+    this.output(...msg)
   }
 }
 

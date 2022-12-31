@@ -1,5 +1,141 @@
 # Changelog
 
+## [5.0.6](https://github.com/npm/cli/compare/libnpmpack-v5.0.5...libnpmpack-v5.0.6) (2022-12-07)
+
+### Dependencies
+
+* [`0a3fe00`](https://github.com/npm/cli/commit/0a3fe000e2723ae6fdb8b1d3154fd3835057c992) [#5933](https://github.com/npm/cli/pull/5933) `minipass@4.0.0`
+* [`3da9a1a`](https://github.com/npm/cli/commit/3da9a1a4ebcf1779035b5f9ae985c087f617efe3) `pacote@15.0.7`
+* [`875bd56`](https://github.com/npm/cli/commit/875bd56c33ca5eef80c2a50a11808445f2a39a2a) `npm-package-arg@10.1.0`
+* [Workspace](https://github.com/npm/cli/releases/tag/arborist-v6.1.5): `@npmcli/arborist@6.1.5`
+
+## [5.0.5](https://github.com/npm/cli/compare/libnpmpack-v5.0.4...libnpmpack-v5.0.5) (2022-11-30)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.1.3...arborist-v6.1.4): `@npmcli/arborist@6.1.4`
+
+## [5.0.4](https://github.com/npm/cli/compare/libnpmpack-v5.0.3...libnpmpack-v5.0.4) (2022-11-16)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.1.2...arborist-v6.1.3): `@npmcli/arborist@6.1.3`
+
+## [5.0.3](https://github.com/npm/cli/compare/libnpmpack-v5.0.2...libnpmpack-v5.0.3) (2022-11-09)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.1.1...arborist-v6.1.2): `@npmcli/arborist@6.1.2`
+
+## [5.0.2](https://github.com/npm/cli/compare/libnpmpack-v5.0.1...libnpmpack-v5.0.2) (2022-11-02)
+
+### Bug Fixes
+
+* [`1f5382d`](https://github.com/npm/cli/commit/1f5382dada181cda41f1504974de1e69a6c1ad7f) [#5789](https://github.com/npm/cli/pull/5789) don't set `stdioString` for any spawn/run-script calls (@lukekarrys)
+
+### Dependencies
+
+* [`abfb28b`](https://github.com/npm/cli/commit/abfb28b249183b8c033f8e7acc1546150cdac137) `@npmcli/run-script@6.0.0`
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.1.0...arborist-v6.1.1): `@npmcli/arborist@6.1.1`
+
+## [5.0.1](https://github.com/npm/cli/compare/libnpmpack-v5.0.0...libnpmpack-v5.0.1) (2022-10-26)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.0.0...arborist-v6.1.0): `@npmcli/arborist@6.1.0`
+
+## [5.0.0](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.4...libnpmpack-v5.0.0) (2022-10-19)
+
+### Features
+
+* [`586e78d`](https://github.com/npm/cli/commit/586e78d59c3dad29e8e886a4764d2eb8021d11d1) empty commit to trigger all workspace releases (@lukekarrys)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.0.0-pre.5...arborist-v6.0.0): `@npmcli/arborist@6.0.0`
+
+## [5.0.0-pre.4](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.3...libnpmpack-v5.0.0-pre.4) (2022-10-19)
+
+### Dependencies
+
+* [`2008ea6`](https://github.com/npm/cli/commit/2008ea6a807acbd97912799adfe97f276202cea6) `npm-package-arg@10.0.0`, `pacote@15.0.2`
+* [`aa01072`](https://github.com/npm/cli/commit/aa010722996ef6de46e1bb937c6f8a94dc2844fa) [#5707](https://github.com/npm/cli/pull/5707) update the following dependencies
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.0.0-pre.4...arborist-v6.0.0-pre.5): `@npmcli/arborist@6.0.0-pre.5`
+
+## [5.0.0-pre.3](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.2...libnpmpack-v5.0.0-pre.3) (2022-10-13)
+
+### Bug Fixes
+
+* [`a990c3c`](https://github.com/npm/cli/commit/a990c3c9a0e67f0a8b6454213675e159fe49432d) [#5651](https://github.com/npm/cli/pull/5651) libnpmpack: obey ignoreScripts (@winterqt)
+
+## [5.0.0-pre.2](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.1...libnpmpack-v5.0.0-pre.2) (2022-10-05)
+
+### Bug Fixes
+
+* [`e4e8ae2`](https://github.com/npm/cli/commit/e4e8ae20aef9e27e57282e87e8757d5b364abb39) libnpmpack: obey foregroundScripts (@winterqt)
+
+### Dependencies
+
+* [`5344d2c`](https://github.com/npm/cli/commit/5344d2ca9ffd1f6db473fd58b46b50179f899ff5) [#5644](https://github.com/npm/cli/pull/5644) `pacote@14.0.0`
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.0.0-pre.3...arborist-v6.0.0-pre.4): `@npmcli/arborist@6.0.0-pre.4`
+
+## [5.0.0-pre.1](https://github.com/npm/cli/compare/libnpmpack-v5.0.0-pre.0...libnpmpack-v5.0.0-pre.1) (2022-09-30)
+
+### ⚠️ BREAKING CHANGES
+
+* `npm pack` now follows a strict order of operations when applying ignore rules. If a files array is present in the package.json, then rules in .gitignore and .npmignore files from the root will be ignored.
+
+### Features
+
+* [`3ae796d`](https://github.com/npm/cli/commit/3ae796d937bd36a5b1b9fd6e9e8473b4f2ddc32d) implement new `npm-packlist` behavior (@lukekarrys)
+
+### Dependencies
+
+* [Workspace](https://github.com/npm/cli/compare/arborist-v6.0.0-pre.2...arborist-v6.0.0-pre.3): `@npmcli/arborist@6.0.0-pre.3`
+
+## [5.0.0-pre.0](https://github.com/npm/cli/compare/libnpmpack-v4.1.3...libnpmpack-v5.0.0-pre.0) (2022-09-08)
+
+### ⚠ BREAKING CHANGES
+
+* **workspaces:** all workspace packages are now compatible with the following semver range for node: `^14.17.0 || ^16.13.0 || >=18.0.0`
+
+### Features
+
+  * [`e95017a`](https://github.com/npm/cli/commit/e95017a07b041cbb3293e659dad853f76462c108) [#5485](https://github.com/npm/cli/pull/5485) feat(workspaces): update supported node engines in package.json (@lukekarrys)
+
+## [4.1.3](https://github.com/npm/cli/compare/libnpmpack-v4.1.2...libnpmpack-v4.1.3) (2022-08-31)
+
+### Dependencies
+
+  * [`8ab12dc`](https://github.com/npm/cli/commit/8ab12dc32b26db770b868cf694cedab38f4e7460) [#5323](https://github.com/npm/cli/pull/5323) deps: `@npmcli/eslint-config@3.1.0`
+
+## [4.1.2](https://github.com/npm/cli/compare/libnpmpack-v4.1.1...libnpmpack-v4.1.2) (2022-06-23)
+
+
+### Dependencies
+
+* @npmcli/run-script@4.1.3 ([#5064](https://github.com/npm/cli/issues/5064)) ([f59a114](https://github.com/npm/cli/commit/f59a114ffe3d1f86ccb2e52a4432292ab76852cc))
+
+## [4.1.1](https://github.com/npm/cli/compare/libnpmpack-v4.1.0...libnpmpack-v4.1.1) (2022-06-22)
+
+
+### Dependencies
+
+* @npmcli/run-script@4.1.0 ([2c06cee](https://github.com/npm/cli/commit/2c06ceee82dd813c0ae84cc0b09e6941cfc5533e))
+* pacote@13.6.1 ([2e50cb8](https://github.com/npm/cli/commit/2e50cb83e84cf25fee93ba0ca5a0343fbdb33c41))
+
+## [4.1.0](https://github.com/npm/cli/compare/libnpmpack-v4.0.3...libnpmpack-v4.1.0) (2022-05-25)
+
+
+### Features
+
+* **libnpmpack:** bump pacote for better workspace awareness ([7307c8d](https://github.com/npm/cli/commit/7307c8de388cd14c96c42d70b7e567ec343ad084))
+
+
+### Dependencies
+
+* pacote@13.5.0 npm-packlist@5.1.0 ([353e2f9](https://github.com/npm/cli/commit/353e2f9dc60a5d319d4105822a9e0b2ddbf82bc0))
+
 ### [4.0.3](https://github.com/npm/cli/compare/libnpmpack-v4.0.2...libnpmpack-v4.0.3) (2022-04-06)
 
 

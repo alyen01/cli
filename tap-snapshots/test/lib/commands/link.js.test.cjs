@@ -5,6 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/lib/commands/link.js TAP hash character in working directory path > should create a global link to current pkg, even within path with hash 1`] = `
+{CWD}/test/lib/commands/tap-testdir-link-hash-character-in-working-directory-path/global-prefix/lib/node_modules/test-pkg-link -> {CWD}/test/lib/commands/tap-testdir-link-hash-character-in-working-directory-path/i_like_#_in_my_paths/test-pkg-link
+
+`
+
 exports[`test/lib/commands/link.js TAP link global linked pkg to local nm when using args > should create a local symlink to global pkg 1`] = `
 {CWD}/test/lib/commands/tap-testdir-link-link-global-linked-pkg-to-local-nm-when-using-args/my-project/node_modules/@myscope/bar -> {CWD}/test/lib/commands/tap-testdir-link-link-global-linked-pkg-to-local-nm-when-using-args/global-prefix/lib/node_modules/@myscope/bar
 {CWD}/test/lib/commands/tap-testdir-link-link-global-linked-pkg-to-local-nm-when-using-args/my-project/node_modules/@myscope/linked -> {CWD}/test/lib/commands/tap-testdir-link-link-global-linked-pkg-to-local-nm-when-using-args/scoped-linked
@@ -41,5 +46,10 @@ exports[`test/lib/commands/link.js TAP link to globalDir when in current working
 
 exports[`test/lib/commands/link.js TAP link ws to globalDir when workspace specified and no args > should create a global link to current pkg 1`] = `
 {CWD}/test/lib/commands/tap-testdir-link-link-ws-to-globalDir-when-workspace-specified-and-no-args/global-prefix/lib/node_modules/a -> {CWD}/test/lib/commands/tap-testdir-link-link-ws-to-globalDir-when-workspace-specified-and-no-args/test-pkg-link/packages/a
+
+`
+
+exports[`test/lib/commands/link.js TAP test linked installed as symlinks > linked package should not be installed 1`] = `
+{CWD}/test/lib/commands/tap-testdir-link-test-linked-installed-as-symlinks/prefix/node_modules/mylink -> {CWD}/test/lib/commands/tap-testdir-link-test-linked-installed-as-symlinks/other/mylink
 
 `
